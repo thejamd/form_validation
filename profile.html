@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Profile</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #f6f6f7;
+      padding: 10px;
+    }
+
+    nav a {
+      color: black;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: rgb(255, 255, 255);
+      color: black;
+    }
+    button {
+      background-color: rgb(123, 108, 190);
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      border-radius: 10px;
+      width: 100px;
+    }
+    button:hover {
+      background-color: rgb(255, 255, 255);
+      color: black;
+    }
+    .btn {
+      width: 150px;
+    }
+    </style>
+</head>
+<body>
+   
+    <nav class="d-flex justify-content-between align-items-center">
+        <div>
+            
+            <a href="">Address</a>
+            <a href="#">Bank Details</a>
+            <a href="#">Payment Details</a>
+            <a href="#">Order History</a>
+        </div>
+        <div>
+            <a href="password.html">Change Password</a>
+            <a href="login.html">Log In</a>
+            
+        </div>
+    </nav>
+    
+    <div class="container mt-7 py-3">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card" style="width: 250px; height: 100px;">
+                    <img src="profile2.avif" alt="User Avatar" class="card-img-top round-image">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Name: Julie</h5>
+                        <p class="card-text">Email: Julie@example.com</p>
+                        <p class="card-text">Username: Julie_00</p>
+                        <p class="card-text">Phone Number: 8765432123</p>
+                        <button>Edit Profile</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 py-5">
+                <!-- Account details card -->
+                <div class="card mb-4 py-3">
+                    <div class="card-header">Personal Details</div>
+                    <div class="card-body">
+                        
+                <form name="myform" method="post" id="register" action="http://www.javatpoint.com/javascriptpages/valid.jsp" onsubmit="return validateForm(event)">
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputUsername">Username</label>
+                                <input class="form-control" id="username" type="text" placeholder="Enter your username"  name="username">
+                            </div>
+
+                            <!-- Form Group (first name and last name) -->
+                            <div class="row gx-3 mb-3">
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputFirstName">First name</label>
+                                    <input class="form-control" id="firstname" type="text" placeholder="Enter your first name"  name="firstname">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputLastName">Last name</label>
+                                    <input class="form-control" id="lastname" type="text" placeholder="Enter your last name"  name="lastname">
+                                </div>
+                            </div>
+                            <!-- Form Group (email) -->
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                                <input class="form-control" id="email" type="email" placeholder="Enter your email address"  name="email">
+                            </div>
+                            <!-- Form Group (phone number) -->
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputPhone">Phone number</label>
+                                <input class="form-control" id="phone" type="tel" placeholder="Enter your phone number"  name="phone">
+                            </div>
+                            <button class="btn btn-primary" type="submit">Save changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateForm(event) {
+            var firstname = document.myform.firstname.value;
+            var email = document.myform.email.value;
+            var username = document.myform.username.value;
+            var lastname = document.myform.lastname.value;
+            var phone = document.myform.phone.value;
+    
+            var strongemail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+            var stronguser = /^[a-zA-Z0-9_]{10,}$/;
+            var strongphone = /^\d{10}$/;
+    
+            if (
+                firstname === "" ||
+                email === "" ||
+                username === "" ||
+                lastname === "" ||
+                phone === ""
+            ) {
+                alert("All fields are required.");
+                event.preventDefault(); // Prevent the form from submitting
+                return false;
+            } else if (!stronguser.test(username)) {
+                alert(
+                    "Username must be at least 10 characters long and can only contain letters, numbers, and underscores."
+                );
+                document.myform.username.focus();
+                event.preventDefault();
+                return false;
+            } 
+            else if (!strongemail.test(email)) {
+                alert("Please enter a valid email address.");
+                document.myform.email.focus();
+                event.preventDefault();
+                return false;
+            } else if (!strongphone.test(phone)) {
+                alert("Please enter a valid 10-digit phone number.");
+                document.myform.phone.focus();
+                event.preventDefault();
+                return false;
+            }
+        }
+    </script>
+    
+                
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
